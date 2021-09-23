@@ -4,7 +4,6 @@ import statisticalData from './Data/statistical-data.json';
 import Statistics from './components/statistics/Statistics';
 import FriendList from './components/friendList/FriendList';
 import friends from './Data/friends.json';
-import FriendListItem from './components/friendListItem/FriendListItem';
 import transactions from './Data/transactions.json';
 import TransactionHistory from './components/transaction/TransactionHistory';
 
@@ -21,17 +20,7 @@ export default function App() {
         likes={user.stats.likes}
       />
       <Statistics stats={statisticalData} />
-      <FriendList>
-        {friends.map(friend => (
-          <FriendListItem
-            key={friend.id}
-            avatar={friend.avatar}
-            name={friend.name}
-            isOnline={friend.isOnline}
-            id={friend.id}
-          />
-        ))}
-      </FriendList>
+      <FriendList items={friends} />
       <TransactionHistory items={transactions} />
     </div>
   );
